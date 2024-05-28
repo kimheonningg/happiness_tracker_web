@@ -5,6 +5,7 @@ This is a project made with [RedwoodJS](https://redwoodjs.com), created by [kimh
 > **Prerequisites**
 >
 > - Redwood requires [Node.js](https://nodejs.org/en/) (=20.x) and [Yarn](https://yarnpkg.com/)
+> - I am currently using node v20.12.2
 
 <br/><br/>
 

@@ -27,6 +27,7 @@ const SettingsPage = () => {
           <div className="text-right">
             <select
               className="bg-PinkTheme/Level2 p-1 rounded-md"
+              value = {language}
               onChange = {handleLanguageChange}
             >
               <option value="korean"> 한국어 </option>

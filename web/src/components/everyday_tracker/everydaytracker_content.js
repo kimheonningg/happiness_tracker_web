@@ -1,4 +1,12 @@
 export const everydayTrackerTexts = {
+  everydayTracker: {
+    korean: {
+      everydayTrackerTitle: "의 기록",
+    },
+    english: {
+      everydayTrackerTitle: "'s Record",
+    }
+  },
   emojiPart:{
     korean: {
       emojiPartTitle: "오늘의 기분",

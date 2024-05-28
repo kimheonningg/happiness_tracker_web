@@ -1,4 +1,4 @@
-import CreateAccountBox from 'src/components/create_account/CreateAccountBox'
+import CreateAccountBox from "./CreateAccountBox"
 
 const CreateAccountPage = () => {
   return (

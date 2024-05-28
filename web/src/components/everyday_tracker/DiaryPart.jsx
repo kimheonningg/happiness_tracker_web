@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { BookOpenIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
+import { everydayTrackerTexts } from "./everydayTracker_content";
 
-export default function DiaryPart() {
+export default function DiaryPart({language}) {
+
+  const texts = (language == "korean") ? everydayTrackerTexts.diaryPart.korean : everydayTrackerTexts.diaryPart.english;
+
   return(
     <div className="flex flex-col border-solid border-2 border-white">
-      <DiaryPartHeader />
+      <DiaryPartHeader texts = {texts}/>
       <input className="w-full my-1 bg-transparent border-solid border-b-2 border-PinkTheme/Level5"></input>
     </div>
   )
 }
 
-export function DiaryPartHeader() {
+export function DiaryPartHeader({texts}) {
   const [showDescriptionBox, setShowDescriptionBox] = useState(false);
   const handleMouseEnter = () => { setShowDescriptionBox(true); };
   const handleMouseLeave = () => { setShowDescriptionBox(false); };
@@ -19,7 +23,7 @@ export function DiaryPartHeader() {
     <div className="flex flex-row justify-center bg-PinkTheme/Level2 rounded-md my-1">
       <BookOpenIcon className="w-5 h-5" />
       <p className="text-md font-bold pl-1">
-        오늘의 일기
+        {texts.diaryPartTitle}
       </p>
       <div className = "relative">
         <QuestionMarkCircleIcon
@@ -29,7 +33,7 @@ export function DiaryPartHeader() {
         />
         {showDescriptionBox &&
           <div className = "absolute top-2">
-            <DescriptionBox />
+            <DescriptionBox texts={texts}/>
           </div>
         }
       </div>
@@ -37,10 +41,12 @@ export function DiaryPartHeader() {
   )
 }
 
-export function DescriptionBox() {
+export function DescriptionBox({texts}) {
   return (
   <div className="bg-PinkTheme/Level1 rounded-sm w-72">
-    <p className="text-sm flex justify-center"> 오늘의 일기를 간단히 작성하는 공간 </p>
+    <p className="text-sm flex justify-center">
+      {texts.diaryPartDescription}
+    </p>
   </div>
   )
 }

@@ -14,11 +14,11 @@ const Routes = () => {
     <Router>
       <Route path="/settings" page={SettingsPage} name="settings" />
       <Route path="/feedback" page={FeedbackPage} name="feedback" />
-      <Route path="/user-info" page={UserInfoPage} name="userInfo" />
-      <Route path="/create-account" page={CreateAccountPage} name="createAccount" />
+      {/* <Route path="/user-info" page={UserInfoPage} name="userInfo" /> */}
+      {/* <Route path="/create-account" page={CreateAccountPage} name="createAccount" /> */}
       <Route path="/about" page={AboutPage} name="about" />
       <Route path="/" page={HomePage} name="home" />
-      <Route path="/login" page={LoginPage} name="login" />
+      {/* <Route path="/login" page={LoginPage} name="login" /> */}
       <Route notfound page={NotFoundPage} />
     </Router>
   )

@@ -1,5 +1,5 @@
 import { Metadata } from '@redwoodjs/web'
-import LoginBox from 'src/components/login/LoginBox'
+import LoginBox from 'src/pages/LoginPage/LoginBox'
 
 const LoginPage = () => {
   return (

@@ -5,12 +5,15 @@ import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
 
 import './index.css'
+import { LanguageProvider } from './LanguageContext'
 
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <RedwoodApolloProvider>
-        <Routes />
+        <LanguageProvider >
+          <Routes />
+        </LanguageProvider>
       </RedwoodApolloProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>

@@ -1,16 +1,20 @@
 import { useState } from "react"
 import { QuestionMarkCircleIcon, ListBulletIcon } from "@heroicons/react/24/outline"
+import { everydayTrackerTexts } from "./everydayTracker_content";
 
-export default function TouchedListPart() {
+export default function TouchedListPart({language}) {
+
+  const texts = (language == "korean") ? everydayTrackerTexts.touchedListPart.korean : everydayTrackerTexts.touchedListPart.english;
+
   return(
     <div className="flex flex-col border-solid border-2 border-white">
-      <TouchedListHeader />
+      <TouchedListHeader texts={texts}/>
       <TouchedList />
     </div>
   )
 }
 
-export function TouchedListHeader() {
+export function TouchedListHeader({texts}) {
   const [showDescriptionBox, setShowDescriptionBox] = useState(false);
   const handleMouseEnter = () => { setShowDescriptionBox(true); };
   const handleMouseLeave = () => { setShowDescriptionBox(false); };
@@ -19,7 +23,7 @@ export function TouchedListHeader() {
     <div className="flex flex-row justify-center bg-PinkTheme/Level2 rounded-md mt-1 mx-2">
       <ListBulletIcon className="w-5 h-5" />
       <p className="text-md font-bold ml-1">
-        오늘의 감동 목록
+        {texts.touchedListPartTitle}
       </p>
       <div className = "relative">
         <QuestionMarkCircleIcon
@@ -29,7 +33,7 @@ export function TouchedListHeader() {
         />
         {showDescriptionBox &&
           <div className = "absolute top-2">
-            <DescriptionBox />
+            <DescriptionBox texts={texts}/>
           </div>
         }
       </div>
@@ -37,10 +41,12 @@ export function TouchedListHeader() {
   )
 }
 
-export function DescriptionBox() {
+export function DescriptionBox({texts}) {
   return (
   <div className="bg-PinkTheme/Level1 rounded-sm w-72">
-    <p className="text-sm flex justify-center"> 오늘 감동했던 점 최대 3가지를 적는 공간 </p>
+    <p className="text-sm flex justify-center">
+      {texts.touchedListPartDescription}
+    </p>
   </div>
   )
 }

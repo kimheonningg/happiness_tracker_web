@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { QuestionMarkCircleIcon, FaceSmileIcon } from "@heroicons/react/24/outline";
+import { everydayTrackerTexts } from "./everydayTracker_content";
 
 const Emoji = {
   HAPPY: '😊',
@@ -9,11 +10,14 @@ const Emoji = {
   ANGRY: '😡'
 };
 
-export default function EmojiPart() {
+export default function EmojiPart({language}) {
+
+  const texts = (language == "korean") ? everydayTrackerTexts.emojiPart.korean : everydayTrackerTexts.emojiPart.english;
+
   return(
     <div className="flex flex-col">
-      <EmojiPartHeader />
-      <EmojiList />
+      <EmojiPartHeader texts={texts}/>
+      <EmojiList/>
     </div>
   )
 }
@@ -41,7 +45,7 @@ export function EmojiList() {
   )
 }
 
-export function EmojiPartHeader() {
+export function EmojiPartHeader({texts}) {
   const [showDescriptionBox, setShowDescriptionBox] = useState(false);
   const handleMouseEnter = () => { setShowDescriptionBox(true); };
   const handleMouseLeave = () => { setShowDescriptionBox(false); };
@@ -50,7 +54,7 @@ export function EmojiPartHeader() {
     <div className="flex flex-row justify-center bg-PinkTheme/Level2 rounded-md my-1">
       <FaceSmileIcon className="w-5 h-5" />
       <p className="text-md font-bold pl-1">
-        오늘의 기분
+        {texts.emojiPartTitle}
       </p>
       <div className = "relative">
         <QuestionMarkCircleIcon
@@ -60,7 +64,7 @@ export function EmojiPartHeader() {
         />
         {showDescriptionBox &&
           <div className = "absolute top-2">
-            <DescriptionBox />
+            <DescriptionBox texts={texts}/>
           </div>
         }
       </div>
@@ -68,10 +72,12 @@ export function EmojiPartHeader() {
   )
 }
 
-export function DescriptionBox() {
+export function DescriptionBox({texts}) {
   return (
   <div className="bg-PinkTheme/Level1 rounded-sm w-72">
-    <p className="text-sm flex justify-center"> 오늘의 기분을 이모티콘 1개로 표현하는 공간 </p>
+    <p className="text-sm flex justify-center">
+      {texts.emojiPartDescription}
+    </p>
   </div>
   )
 }

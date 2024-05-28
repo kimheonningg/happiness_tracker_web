@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { PhotoIcon, QuestionMarkCircleIcon, PlusCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import { everydayTrackerTexts } from "./everydayTracker_content";
 
-export default function PhotoPart() {
+export default function PhotoPart({language}) {
+
+  const texts = (language == "korean") ? everydayTrackerTexts.photoPart.korean : everydayTrackerTexts.photoPart.english;
+
   return (
     <div className="flex flex-col border-solid border-2 border-white h-52">
-      <PhotoPartHeader />
+      <PhotoPartHeader texts={texts}/>
       <PhotoUploadBox />
     </div>
   )
 }
 
 
-export function PhotoPartHeader() {
+export function PhotoPartHeader({texts}) {
   const [showDescriptionBox, setShowDescriptionBox] = useState(false);
   const handleMouseEnter = () => { setShowDescriptionBox(true); };
   const handleMouseLeave = () => { setShowDescriptionBox(false); };
@@ -20,7 +24,7 @@ export function PhotoPartHeader() {
     <div className="flex flex-row justify-center bg-PinkTheme/Level2 rounded-md my-1">
       <PhotoIcon className="w-5 h-5" />
       <p className="text-md font-bold pl-1">
-        오늘의 사진
+        {texts.photoPartTitle}
       </p>
       <div className = "relative">
         <QuestionMarkCircleIcon
@@ -30,7 +34,7 @@ export function PhotoPartHeader() {
         />
         {showDescriptionBox &&
           <div className = "absolute top-2">
-            <DescriptionBox />
+            <DescriptionBox texts={texts}/>
           </div>
         }
       </div>
@@ -38,10 +42,12 @@ export function PhotoPartHeader() {
   )
 }
 
-export function DescriptionBox() {
+export function DescriptionBox({texts}) {
   return (
   <div className="bg-PinkTheme/Level1 rounded-sm w-72">
-    <p className="text-sm flex justify-center"> 오늘의 사진 최대 3장을 기록하는 공간 </p>
+    <p className="text-sm flex justify-center">
+      {texts.photoPartDescription}
+    </p>
   </div>
   )
 }

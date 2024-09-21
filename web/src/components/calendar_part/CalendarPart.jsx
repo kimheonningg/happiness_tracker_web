@@ -7,6 +7,7 @@ export default function CalendarPart({ onSelectDate }) {
   const [selected, setSelected] = useState(today);
   const handleSelect = (date) => {
     if(date) {
+      if(date > today) return;
       setSelected(date);
       onSelectDate(date);
     }

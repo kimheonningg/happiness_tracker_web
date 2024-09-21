@@ -32,7 +32,7 @@ const FeedbackPage = () => {
       <div className="flex justify-center p-5">
         <p className="text-xl font-bold">{feedbackTexts.feedBackTitle}</p>
       </div>
-      <div className="flex flex-row justify-center mt-5 underline decoration-PinkTheme/Level5">
+      <div className="flex flex-row justify-center mt-5 underline decoration-PinkTheme/Level5 mx-5 md:mx-0">
         <EnvelopeIcon className="w-5 h-5 m-1"/>
         <p className="text-lg"> {texts.feedbackDescription} </p>
       </div>
@@ -49,7 +49,7 @@ const FeedbackPage = () => {
       </div>
       <div className="flex justify-center mt-10">
         <button
-          className="mx-auto py-1 mb-10 rounded-md bg-PinkTheme/Level5 w-1/4 hover:bg-PinkTheme/Level4 font-bold"
+          className="mx-auto py-1 mb-10 rounded-md bg-PinkTheme/Level5 px-3 md:px-0 md:w-1/4 hover:bg-PinkTheme/Level4 font-bold"
           onClick={()=>{alert(texts.feedbackSuccessMessage);}}
         >
           {texts.feedbackSubmit}

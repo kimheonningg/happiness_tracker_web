@@ -21,8 +21,8 @@ const SettingsPage = () => {
       <div className="flex justify-center p-5">
         <p className="text-xl font-bold">Settings</p>
       </div>
-      <div className="flex justify-center px-10 pt-10">
-        <div className="grid grid-cols-2 grid-rows-2 w-1/3 h-36">
+      <div className="flex justify-center lg:px-10 pt-10">
+        <div className="grid grid-cols-2 grid-rows-2 lg:w-1/3 lg:h-36 gap-5 md:gap-0">
           <p className="text-left">언어 (Language): </p>
           <div className="text-right">
             <select
@@ -47,7 +47,7 @@ const SettingsPage = () => {
       </div>
       <div className="flex justify-center mt-10">
         <button
-          className="mx-auto py-1 mb-10 rounded-md bg-PinkTheme/Level5 w-1/4 hover:bg-PinkTheme/Level4 font-bold"
+          className="mx-auto px-3 py-1 mb-10 rounded-md bg-PinkTheme/Level5 lg:w-1/4 hover:bg-PinkTheme/Level4 font-bold"
           onClick={()=>{alert("변경되었습니다 (Saved).");}}
         >
           변경하기 (Save)

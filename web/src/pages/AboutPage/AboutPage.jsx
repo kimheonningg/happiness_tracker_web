@@ -27,8 +27,8 @@ const AboutPage = () => {
         <p className = "text-lg"> {texts.aboutPageMainDescription} </p>
         <FaceSmileIcon className="w-5 h-5 m-1"/>
       </div>
-      <div className="flex justify-center mt-10">
-      <p dangerouslySetInnerHTML={{ __html: texts.aboutPageSubDescription }}></p>
+      <div className="flex justify-center mt-10 mx-3 md:mx-0">
+        <p dangerouslySetInnerHTML={{ __html: texts.aboutPageSubDescription }}></p>
       </div>
       <div className="flex justify-center mt-12">
         <p className="text-xs">

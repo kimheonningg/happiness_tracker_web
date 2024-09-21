@@ -41,11 +41,11 @@ const HomePage = () => {
         <p className= "text-xl font-bold"> {texts.homeTitle} </p>
       </div>
       <div className="flex justify-center mt-10">
-        <div className="grid grid-cols-2 grid-rows-1">
+        <div className="md:grid md:grid-cols-2 md:grid-rows-1 flex flex-col">
           <div>
             <CalendarPart onSelectDate={handleDateSelect}/>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mx-3 mt-5 lg:mx-0 lg:mt-0">
             <EverydayTracker today={selectedDate.toDateString()} />
             <button
               className="mx-auto py-1 mt-10 mb-10 rounded-md bg-PinkTheme/Level5 w-1/4 hover:bg-PinkTheme/Level4 font-bold"
